@@ -15,12 +15,12 @@ class Teacher(models.Model):
 
 class Student(models.Model):
     name = models.CharField(max_length=30, verbose_name='Имя')
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    teacher = models.ManyToManyField(Teacher, on_delete=models.CASCADE)
     group = models.CharField(max_length=10, verbose_name='Класс')
 
     class Meta:
         verbose_name = 'Ученик'
-        verbose_name_plural = 'Ученики'
+        verbose_name_plural = 'Ученики'1
 
     def __str__(self):
         return self.name
